@@ -58,7 +58,13 @@ function App() {
 
   return (
     <>
-      <div className='container'>
+      <div className='container bg-info'>
+        {alert.message && (
+          <div className={`alert alert-${alert.type}`}>
+            {alert.message}
+
+          </div>
+        )}
         <form onSubmit={savePost}>
           <div className="mb-3">
             <label className="form-label">Autore</label>
