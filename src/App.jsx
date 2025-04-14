@@ -43,6 +43,15 @@ function App() {
 
         });
       })
+      .catch(error => {
+        console.log(error);
+        setAlert({
+          type: 'Sbagliato',
+          message: 'Invio del post non riuscito!',
+          alert: 'Invio del post non riuscito!'
+
+        });
+      });
 
   }
 
