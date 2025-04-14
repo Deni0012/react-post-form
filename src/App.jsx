@@ -4,12 +4,17 @@ import axios from 'axios';
 
 function App() {
 
+  const endPoint = ('https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts');
+
   const [formPosts, setFormPosts] = useState({
     author: '',
     title: '',
     body: '',
     public: false
   })
+
+  const [alert, setAlert] = useState({ type: '', message: '', alert: '' });
+
 
   function handleFormPosts(event) {
     const value =
@@ -26,6 +31,18 @@ function App() {
     event.preventDefault();
 
     console.log(formPosts);
+
+
+    axios.post(endPoint, formPosts)
+      .then(res => {
+        console.log(res.posts);
+        setAlert({
+          type: 'Corretto',
+          message: 'Post aggiunto con successo!',
+          alert: 'Post aggiunto con successo!'
+
+        });
+      })
 
   }
 
